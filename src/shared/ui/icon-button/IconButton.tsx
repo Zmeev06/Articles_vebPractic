@@ -1,14 +1,18 @@
+import React from "react";
+
 interface IIconButtonProps {
-    icon: string
+    Icon: React.VFC<React.SVGProps<SVGSVGElement>>
 }
 
 export const IconButton = (props: IIconButtonProps) => {
     const {
-        icon,
+        Icon,
     } = props;
-    return (
-        <div>
 
-        </div>
+    return (
+        <button className="text-5xl">
+            тестинг
+            {/*<Icon color="red" width="100px"/>*/}
+        </button>
     );
 };

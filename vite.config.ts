@@ -1,10 +1,11 @@
 import react from '@vitejs/plugin-react'
 import { defineConfig } from 'vite'
 import tsconfigPaths from 'vite-tsconfig-paths'
+import svgr from "vite-plugin-svgr";
 
 // https://vitejs.dev/config/
 const config = defineConfig({
-  plugins: [react(), tsconfigPaths()],
+  plugins: [react(), tsconfigPaths(), svgr()],
   resolve:{
     alias: {
       app: '/src/app',
