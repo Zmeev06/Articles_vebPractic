@@ -1,9 +1,9 @@
-import "./styles/index.scss";
+import './styles/index.scss'
 
 export const App = () => {
   return (
     <>
-      <div>Good template</div>
+      <h1 className="text-[100px] text-red">Hello</h1>
     </>
   )
 }

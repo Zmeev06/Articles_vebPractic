@@ -28,8 +28,7 @@
   "dependencies": {
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
-    "react-router-dom": "^6.17.0",
-    "tailwind": "^4.0.0"
+    "react-router-dom": "^6.17.0"
   },
   "devDependencies": {
     "@types/node": "^20.5.9",
@@ -42,10 +41,8 @@
     "eslint-module-utils": "^2.8.0",
     "eslint-plugin-jsx-a11y": "^6.7.1",
     "eslint-plugin-react-refresh": "^0.4.3",
-    "husky": "^8.0.3",
     "lint-staged": "^14.0.1",
     "prettier": "^3.0.3",
-    "sass": "^1.69.4",
     "typescript": "^5.2.2",
     "vite": "^4.4.9",
     "vite-tsconfig-paths": "^4.2.0"
