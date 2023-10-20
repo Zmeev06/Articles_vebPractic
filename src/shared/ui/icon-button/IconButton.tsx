@@ -1,3 +1,4 @@
+
 import React, {useState} from "react";
 import style from "./IconButton.module.scss";
 import classNames from "classnames";
@@ -7,11 +8,11 @@ interface IIconButtonProps extends React.ButtonHTMLAttributes<HTMLButtonElement>
     className?: string,
     width?: number,
     bgColor?: string,
-}
 
 export const IconButton = (props: IIconButtonProps) => {
     const {
         Icon,
+
         className,
         width = 30,
         bgColor = "#c4c4c4",

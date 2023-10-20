@@ -1,3 +1,4 @@
+
 import React, {useState} from "react";
 import style from "./TextButton.module.scss";
 import classNames from "classnames";
@@ -35,6 +36,7 @@ export const TextButton = (props: ITextButtonProps) => {
                 style={styled === "filled" ? !isHover ? {backgroundColor: bgColor, color: color, padding: padding} : {backgroundColor: `${bgColor}80`, color: hoverColor, padding: padding} : !isHover ? { border: `1px solid ${bgColor}`, color: color, padding: padding} : {backgroundColor: `${bgColor}80`, color: hoverColor, padding: padding}} className={classNames(style.btn, className)} {...otherProps}>
                 {children}
             </button>
+
         </div>
     );
 };
