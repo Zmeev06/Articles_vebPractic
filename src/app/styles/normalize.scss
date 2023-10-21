@@ -1,4 +1,3 @@
-
 @font-face {
   font-family: Cormorant;
   src: url('../../shared/assets/fonts/Cormorant-Regular.ttf');
@@ -12,8 +11,7 @@
 
 *,
 *::before,
-*::after
-* {
+*::after * {
   padding: 0;
   margin: 0;
   box-sizing: border-box;
@@ -109,6 +107,10 @@ button::-moz-focus-inner {
   border: 0;
 }
 
+iframe {
+  display: none;
+}
+
 label {
   cursor: pointer;
 }
@@ -132,4 +134,3 @@ body {
 * {
   font-family: Cormorant;
 }
-

@@ -1,10 +1,14 @@
-import { Routing } from './providers/routing'
 import './styles/index.scss'
+import { Provider } from 'react-redux'
+import { Routing } from './providers/routing'
+import { store } from './providers/store'
 
 export const App = () => {
   return (
     <>
-      <Routing/>
+      <Provider store={store}>
+        <Routing />
+      </Provider>
     </>
   )
 }

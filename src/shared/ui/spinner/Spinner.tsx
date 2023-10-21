@@ -1,15 +1,11 @@
-import style from "./Spinner.module.scss";
+import style from './Spinner.module.scss'
 
 interface ISpinnerProps {
-    size?: string,
+  size?: string
 }
 
 export const Spinner = (props: ISpinnerProps) => {
-    const {
-        size = "50px",
-    } = props;
-    
-    return(
-        <span style={{width: size, height: size}} className={style.loader}></span>
-    )
+  const { size = '50px' } = props
+
+  return <span style={{ width: size, height: size }} className={style.loader} />
 }
