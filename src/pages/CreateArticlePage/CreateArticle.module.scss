@@ -44,7 +44,7 @@
   padding: 20px;
   display: flex;
   flex-direction: column;
-  transition: .3s;
+  transition: 0.3s;
 }
 
 .titlesBlock {
@@ -103,6 +103,8 @@
   display: flex;
   gap: 20px;
   height: 50px;
+  align-items: center;
+  width: 60%;
 }
 
 .btn {
@@ -118,7 +120,7 @@
 }
 
 .editorBlock {
-  transition: .3s;
+  transition: 0.3s;
   height: 420px;
   background-color: #fff;
 }

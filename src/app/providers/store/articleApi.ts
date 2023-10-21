@@ -1,11 +1,11 @@
 import { createApi, fetchBaseQuery } from '@reduxjs/toolkit/query/react'
 import { IArticle } from 'shared/interfaces/article'
 
-interface CreateArticle {
-  content: 'string'
-  subtitle: 'string'
-  theme: 'string'
-  title: 'string'
+interface ICreateArticle {
+  content: string
+  subtitle: string
+  theme: string
+  title: string
 }
 
 export const articleApi = createApi({
@@ -21,7 +21,7 @@ export const articleApi = createApi({
     getArticleQrCode: builder.query<IArticle, number>({
       query: (id) => `qr-codes/${id}`,
     }),
-    createArticle: builder.mutation<IArticle, CreateArticle>({
+    createArticle: builder.mutation<IArticle, ICreateArticle>({
       query: ({ content, subtitle, theme, title }) => ({
         url: `create/article`,
         method: 'POST',
