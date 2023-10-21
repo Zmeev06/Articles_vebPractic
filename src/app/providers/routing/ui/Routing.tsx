@@ -11,6 +11,7 @@ export const Routing = () => {
             <Routes>
                 <Route path={pathRoutes.article} element={<ArticlePageLazy/>}/>
                 <Route path={pathRoutes.constructor} element={<CreateArticlePageLazy/>}/>
+                <Route path="/" element={<CreateArticlePageLazy/>}/>
             </Routes>
         </Suspense>
     )
