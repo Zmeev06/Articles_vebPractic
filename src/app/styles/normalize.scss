@@ -1,17 +1,14 @@
+
 @font-face {
   font-family: Cormorant;
   src: url('../../shared/assets/fonts/Cormorant-Regular.ttf');
 }
 
-* {
-  padding: 0px;
-  margin: 0px;
-  border: none;
-}
-
 *,
 *::before,
 *::after {
+* {
+
   box-sizing: border-box;
 }
 
@@ -115,4 +112,4 @@ legend {
 
 * {
   font-family: Cormorant;
-}
+
