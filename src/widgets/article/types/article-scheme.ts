@@ -1,4 +1,4 @@
 interface IArticleScheme {
-    type: "text" | "image",
-    content: string,
+  type: 'text' | 'image'
+  content: string
 }
