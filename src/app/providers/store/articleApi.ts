@@ -1,5 +1,6 @@
 import { createApi, fetchBaseQuery } from '@reduxjs/toolkit/query/react'
 import { IArticle } from 'shared/interfaces/article'
+import { baseQuery } from './settings'
 
 interface ICreateArticle {
   content: string
@@ -10,16 +11,25 @@ interface ICreateArticle {
 
 export const articleApi = createApi({
   reducerPath: 'articleApi',
-  baseQuery: fetchBaseQuery({ baseUrl: 'http://195.2.93.178/api' }),
+  baseQuery,
   endpoints: (builder) => ({
     getArticles: builder.query<IArticle[], void>({
-      query: () => `/articles`,
+      query: () => ({
+        url: `/articles`,
+        method: 'GET',
+      }),
     }),
     getArticleByTitle: builder.query<IArticle, string>({
-      query: (id) => `article/${id}`,
+      query: (id) => ({
+        url: `article/${id}`,
+        method: 'GET',
+      }),
     }),
     getArticleQrCode: builder.query<IArticle, number>({
-      query: (id) => `qr-codes/${id}`,
+      query: (id) => ({
+        url: `qr-codes/${id}`,
+        method: 'GET',
+      }),
     }),
     createArticle: builder.mutation<IArticle, ICreateArticle>({
       query: ({ content, subtitle, theme, title }) => ({

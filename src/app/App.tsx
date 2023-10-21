@@ -1,14 +1,18 @@
-import ArticlePage from 'pages/article/ArticlePage'
 import './styles/index.scss'
-import { Input } from 'shared/ui/input/Input'
-import { Autocomplete } from 'shared/ui/autocomplete/Autocomplete'
+import ArticlePage from 'pages/article/ArticlePage'
 import { CreateArticlePage } from 'pages/CreateArticlePage/CreateArticlePage'
+import { Provider } from 'react-redux'
+import { Autocomplete } from 'shared/ui/autocomplete/Autocomplete'
+import { Input } from 'shared/ui/input/Input'
+import { store } from './providers/store'
 
 export const App = () => {
   return (
     <>
-      {/* <ArticleWidgets /> */}
-      <CreateArticlePage />
+      <Provider store={store}>
+        {/* <ArticleWidgets /> */}
+        <CreateArticlePage />
+      </Provider>
     </>
   )
 }

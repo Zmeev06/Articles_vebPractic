@@ -5,6 +5,7 @@ import ReactQuill from 'react-quill'
 import { IconButton } from 'shared/ui/icon-button'
 import { Input } from 'shared/ui/input'
 import { TextButton } from 'shared/ui/text-button'
+import { articleApi } from '@app/providers/store'
 import DeleteIcon from '../../shared/assets/icons/delete.svg?react'
 import Moon from '../../shared/assets/icons/moon.svg?react'
 import plus from '../../shared/assets/icons/plus.svg'
@@ -12,6 +13,7 @@ import Sun from '../../shared/assets/icons/sunIcon.svg?react'
 import styles from './CreateArticle.module.scss'
 
 export const CreateArticlePage = () => {
+  const [createArticleFunc] = articleApi.useCreateArticleMutation()
   const [title, setTitle] = useState('')
   const [subtitle, setSubTitle] = useState('')
   const [text, setText] = useState('')
@@ -54,9 +56,14 @@ export const CreateArticlePage = () => {
     'image',
   ]
 
-  useEffect(() => {
-    console.log(text)
-  }, [text])
+  const createArticleHandler = () =>
+    createArticleFunc({
+      content: text,
+      subtitle,
+      theme,
+      title,
+    })
+
   return (
     <div className={styles.main}>
       <div className={styles.bg}>
@@ -143,7 +150,12 @@ export const CreateArticlePage = () => {
             </div>
           </div>
         </div>
-        <TextButton styled="filled" bgColor="#2A00B4" className={styles.btn}>
+        <TextButton
+          onClick={createArticleHandler}
+          styled="filled"
+          bgColor="#2A00B4"
+          className={styles.btn}
+        >
           Сохранить
         </TextButton>
       </div>
