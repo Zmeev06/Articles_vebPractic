@@ -1,11 +1,10 @@
-import {ArticlePage} from 'pages/article'
+import { Routing } from './providers/routing'
 import './styles/index.scss'
 
 export const App = () => {
   return (
     <>
-      <ArticlePage  />
-      {/* <CreateArticlePage /> */}
+      <Routing/>
     </>
   )
 }

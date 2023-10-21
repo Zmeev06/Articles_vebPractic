@@ -21,10 +21,12 @@ const testArticle: IArticleScheme[] = [
 
 ]
 
-export const ArticlePage = () => {
+const ArticlePage = () => {
   return (
     <div className={style.page}>
       <ArticleWidgets viewCount={123} date="23.34.2023" blocks={testArticle} title="Тайтл самого лучшего поста" subtitle="Субтайтл самого лучшего поста"/>
     </div>
   )
 }
+
+export default ArticlePage;
