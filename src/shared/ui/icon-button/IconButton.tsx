@@ -28,12 +28,12 @@ export const IconButton = (props: IIconButtonProps) => {
       onMouseLeave={() => setIsHover(false)}
       style={{
         backgroundColor: !isHover ? bgColor : `${bgColor}80`,
-        height: width,
-      }}
+        height: height, width: width,
+      }}  
       className={classNames(style.btn, className)}
       {...otherProps}
     >
-      <Icon width={`${width - 10}px`} className={className} />
+      <Icon width={`${width}px`} className={className} />
     </button>
   )
 }

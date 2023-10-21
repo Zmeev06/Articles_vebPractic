@@ -53,10 +53,7 @@ const CreateArticlePage = () => {
     'link',
     'image',
   ]
-
-  useEffect(() => {
-    console.log(text)
-  }, [text])
+  
   return (
     <div className={styles.main}>
       <div className={styles.bg}>
@@ -68,7 +65,7 @@ const CreateArticlePage = () => {
             accept="image/*"
             className={styles.fileInput}
             onChange={handleImageChange}
-          />
+          />  
         </label>
 
         {selectedImage && (
@@ -94,31 +91,32 @@ const CreateArticlePage = () => {
             color={theme === 'dark' ? '#a9a9a9' : '#000'}
           />
           <div className={styles.themedBlock}>
-            {isSubtitle ? (
-              <div className={styles.subtitleBlock}>
-                <Input
-                  type="subtitle"
-                  placeholder="Подзаголовок"
-                  value={subtitle}
-                  setValue={setSubTitle}
-                  color={theme === 'dark' ? '#a9a9a9' : '#000'}
-                />
-                <IconButton
-                  Icon={DeleteIcon}
-                  width={30}
-                  onClick={() => setIsSubTitle(false)}
-                />
-              </div>
-            ) : (
-              <div className={styles.subtitleBlock}>
+            <div className={styles.subtitleBlock}>
+              {isSubtitle ? (
+                <>
+                  <Input
+                    type="subtitle"
+                    placeholder="Подзаголовок"
+                    value={subtitle}
+                    setValue={setSubTitle}
+                    color={theme === 'dark' ? '#a9a9a9' : '#000'}
+                  />
+                  <IconButton
+                    Icon={DeleteIcon}
+                    width={30}
+                    onClick={() => setIsSubTitle(false)}
+                  />
+                </>
+              ) : (
+                // eslint-disable-next-line jsx-a11y/no-noninteractive-element-interactions
                 <p
                   onClick={() => setIsSubTitle(true)}
                   className={styles.addSubtitle}
                 >
                   Добавить подзаголовок
                 </p>
-              </div>
-            )}
+              )}
+            </div>
             <IconButton
               Icon={theme === 'dark' ? Sun : Moon}
               onClick={() => setTheme(theme === 'dark' ? 'light' : 'dark')}

@@ -5,10 +5,11 @@
     justify-content: center;
     width: 100%;
     max-width: 1000px;
+    height: fit-content;
+    margin: 10px;
     padding: 10px;
     border-radius: 10px;
 }
-
 
 .title{
     font-size: 45px;
@@ -50,14 +51,18 @@
     margin-top: 50px;
     margin-bottom: 50px;
 }
-
+.img{
+    max-width: 800px;
+    width: 100%;
+}
 .bar{
     width: 850px;
     height: 1px;
     opacity: .3;
+    margin: 10px 0;
 }
 
-p, h1, h2, h3, img, .bar {
+p, h1, h2, h3, img, .bar, .content, .date, .views {
     animation: spawn .9s ease-in;
 }
 

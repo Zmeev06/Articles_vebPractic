@@ -1,17 +1,17 @@
-import React from 'react'
 import style from "./ArticleWidgets.module.scss";
 
 import ShareIcon from "shared/assets/icons/share.svg?react";
 import DateIcon from "shared/assets/icons/date.svg?react";
 import EyeIcon from "shared/assets/icons/eye.svg?react";
 import { IconButton } from 'shared/ui/icon-button';
+import { useEffect, useRef, useState } from "react";
 
 interface IArticleWidgetsProps {
   theme?: string,
   color?: string,
   title: string,
   subtitle: string,
-  blocks: IArticleScheme[],
+  content: string,
   date: string,
   viewCount: number,
 }
@@ -22,7 +22,7 @@ export const ArticleWidgets = (props: IArticleWidgetsProps) => {
     color = "#333333",
     subtitle,
     title,
-    blocks,
+    content,
     date,
     viewCount
   } = props;
@@ -31,7 +31,7 @@ export const ArticleWidgets = (props: IArticleWidgetsProps) => {
     <div style={{backgroundColor: theme}} className={style.article}>
       <div className={style.title_block}>
         <h1 className={style.title}>{title}</h1>
-        <IconButton width={15} height={15} Icon={ShareIcon}/>
+        <IconButton width={25} height={25} Icon={ShareIcon}/>
       </div>
       <div className={style.article_info}>
         <div className={style.date}>
@@ -47,14 +47,7 @@ export const ArticleWidgets = (props: IArticleWidgetsProps) => {
 
       <div className={style.bar} style={{backgroundColor: color}}></div>
 
-      <div>
-        {blocks.map(item => item.type === "text" ? 
-          (<div className={style.text}>
-            <p>{item.content}</p>
-          </div>) :
-          (<div className={style.img}>
-            <img src={item.content} alt="" />
-          </div>))}
+      <div className={style.content} dangerouslySetInnerHTML={{__html: content}}>  
       </div>
     </div>
   )
