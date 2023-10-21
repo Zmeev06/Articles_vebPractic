@@ -1,10 +1,6 @@
 @import 'normalize';
 @import 'vars';
 
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
-
 .article {
   background-color: lightgray;
   min-height: 200vh;
@@ -15,7 +11,7 @@
     border-radius: 12px;
     box-shadow: 0 0 10px #00000088;
     max-width: 1250px;
-    width: 80%;
+    width: 60%;
   }
 }
 
