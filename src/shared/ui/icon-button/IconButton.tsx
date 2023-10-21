@@ -25,11 +25,14 @@ export const IconButton = (props: IIconButtonProps) => {
     <button
       onMouseEnter={() => setIsHover(true)}
       onMouseLeave={() => setIsHover(false)}
-      style={{ backgroundColor: !isHover ? bgColor : `${bgColor}80` }}
+      style={{
+        backgroundColor: !isHover ? bgColor : `${bgColor}80`,
+        height: width,
+      }}
       className={classNames(style.btn, className)}
       {...otherProps}
     >
-      <Icon width={`${width}px`} className={className} />
+      <Icon width={`${width - 10}px`} className={className} />
     </button>
   )
 }

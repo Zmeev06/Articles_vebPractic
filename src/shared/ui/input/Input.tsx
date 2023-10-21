@@ -7,6 +7,7 @@ interface InputProps {
   className?: string
   value: string
   setValue: (value: string) => void
+  color?: string
 }
 
 export const Input = ({
@@ -15,6 +16,7 @@ export const Input = ({
   className,
   value,
   setValue,
+  color,
 }: InputProps) => {
   return (
     <input
@@ -23,8 +25,9 @@ export const Input = ({
       placeholder={placeholder}
       className={classNames(style.input, className)}
       style={{
-        minWidth: type === 'title' ? 300 : 150,
-        fontSize: type === 'title' ? 50 : 30,
+        width: type === 'title' ? '100%' : '40%',
+        fontSize: type === 'title' ? 45 : 30,
+        color,
       }}
       onChange={(e) => setValue(e.target.value)}
     />

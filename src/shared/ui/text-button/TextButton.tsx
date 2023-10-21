@@ -30,25 +30,25 @@ export const TextButton = (props: ITextButtonProps) => {
   const [isHover, setIsHover] = useState(false)
 
   return (
-    <div style={{ width: width }}>
+    <div style={{ width }} className={className}>
       <button
         onMouseEnter={() => setIsHover(true)}
         onMouseLeave={() => setIsHover(false)}
         style={
           styled === 'filled'
             ? !isHover
-              ? { backgroundColor: bgColor, color: color, padding: padding }
+              ? { backgroundColor: bgColor, color, padding }
               : {
                   backgroundColor: `${bgColor}80`,
                   color: hoverColor,
-                  padding: padding,
+                  padding,
                 }
             : !isHover
-            ? { border: `1px solid ${bgColor}`, color: color, padding: padding }
+            ? { border: `1px solid ${bgColor}`, color, padding }
             : {
                 backgroundColor: `${bgColor}80`,
                 color: hoverColor,
-                padding: padding,
+                padding,
               }
         }
         className={classNames(style.btn, className)}

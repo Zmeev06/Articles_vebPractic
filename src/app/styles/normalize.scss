@@ -4,6 +4,12 @@
   src: url('../../shared/assets/fonts/Cormorant-Regular.ttf');
 }
 
+* {
+  padding: 0px;
+  margin: 0px;
+  border: none;
+}
+
 *,
 *::before,
 *::after
@@ -112,5 +118,18 @@ legend {
 }
 
 * {
+  font-family: Montserrat;
+  user-select: none;
+}
+
+img {
+  pointer-events: none;
+}
+
+body {
+  overflow-x: hidden;
+}
+* {
   font-family: Cormorant;
 }
+
