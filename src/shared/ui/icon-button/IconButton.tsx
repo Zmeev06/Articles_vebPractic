@@ -6,15 +6,16 @@ interface IIconButtonProps
   extends React.ButtonHTMLAttributes<HTMLButtonElement> {
   Icon: React.VFC<React.SVGProps<SVGSVGElement>>
   className?: string
-  width?: number
+  width?: number,
+  height?: number,
   bgColor?: string
 }
 export const IconButton = (props: IIconButtonProps) => {
   const {
     Icon,
-
     className,
     width = 30,
+    height = 30,
     bgColor = '#c4c4c4',
     ...otherProps
   } = props
