@@ -9,14 +9,37 @@
     border-radius: 10px;
 }
 
+
 .title{
     font-size: 45px;
     font-weight: 800;
+    margin-right: 150px;
 }
+.title_block{
+    display: flex;
+    align-items: center;
+    margin-left: 150px;
+}
+
+.article_info{
+    display: flex;
+}
+
+.date, .views{
+    font: Arial, Helvetica, sans-serif !important;
+    div{
+        margin-left: 5px;
+    }
+    display: flex;
+    align-items: center;
+    margin: 0 10px;
+}
+
 .subtitle{
     font-size: 30px;
     font-weight: 500;
 }
+
 .text{
     margin: 0 auto;
     font-size: 20px;
@@ -26,4 +49,26 @@
 
     margin-top: 50px;
     margin-bottom: 50px;
+}
+
+.bar{
+    width: 850px;
+    height: 1px;
+    opacity: .3;
+}
+
+p, h1, h2, h3, img, .bar {
+    animation: spawn .9s ease-in;
+}
+
+
+@keyframes spawn {
+    0%{
+        opacity: 0;
+        transform: translateY(150px);
+    }
+    100%{
+        opacity: 1;
+        transform: translateY(0px);
+    }
 }
