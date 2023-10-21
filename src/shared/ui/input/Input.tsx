@@ -25,7 +25,7 @@ export const Input = ({
       placeholder={placeholder}
       className={classNames(style.input, className)}
       style={{
-        width: type === 'title' ? '100%' : '40%',
+        width: type === 'title' ? '100%' : '60%',
         fontSize: type === 'title' ? 45 : 30,
         color,
       }}
