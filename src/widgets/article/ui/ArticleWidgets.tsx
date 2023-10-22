@@ -29,7 +29,12 @@ export const ArticleWidgets = (props: IArticleWidgetsProps) => {
     <div style={{ backgroundColor: theme }} className={style.article}>
       <div className={style.title_block}>
         <h1 className={style.title}>{title}</h1>
-        <IconButton className={style.share} width={25} height={25} Icon={ShareIcon} />
+        <IconButton
+          className={style.share}
+          width={25}
+          height={25}
+          Icon={ShareIcon}
+        />
       </div>
       <div className={style.article_info}>
         <div className={style.date}>
