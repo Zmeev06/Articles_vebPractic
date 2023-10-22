@@ -2,6 +2,7 @@ import './MyModal.scss'
 import CloseIcon from '../../assets/icons/CloseIcon.svg?react'
 
 interface ModalProps {
+  link: string
   isActive?: boolean
   setIsActive: (param: boolean) => void
   headerTitle: string
@@ -15,11 +16,16 @@ interface ModalProps {
 
 export const MyModal = ({
   setIsActive,
+  link,
   className,
   headerTitle,
   children,
 }: ModalProps) => {
-  const onClickHandler = () => setIsActive(false)
+  const onClickHandler = () => {
+    console.log(link)
+    // window.location.href = link
+    // setIsActive(false)
+  }
 
   return (
     <div

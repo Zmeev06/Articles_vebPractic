@@ -5,8 +5,11 @@ import DeleteIcon from 'shared/assets/icons/delete.svg?react'
 import Moon from 'shared/assets/icons/moon.svg?react'
 import Sun from 'shared/assets/icons/sunIcon.svg?react'
 import UploadImageIcon from 'shared/assets/icons/uploadImage.svg'
+import { Copy } from 'shared/ui/Copy'
 import { IconButton } from 'shared/ui/icon-button'
 import { Input } from 'shared/ui/input'
+import { MyModal } from 'shared/ui/my-modal'
+import { Spinner } from 'shared/ui/spinner'
 import { TextButton } from 'shared/ui/text-button'
 import { articleApi } from '@app/providers/store'
 import style from './FormArticle.module.scss'
@@ -17,14 +20,14 @@ interface IFormArticleProps {
 
 export const FormArticle = (props: IFormArticleProps) => {
   const { onChangeImageCover } = props
-
-  const [createArticleFunc] = articleApi.useCreateArticleMutation()
-
+  const [createArticleFunc, { data, isLoading }] =
+    articleApi.useCreateArticleMutation()
   const [title, setTitle] = useState('')
   const [subtitle, setSubTitle] = useState('')
   const [text, setText] = useState('')
   const [isSubtitle, setIsSubTitle] = useState(false)
   const [theme, setTheme] = useState('light')
+  const [isActiveModal, setIsActiveModal] = useState(false)
 
   const modules = {
     toolbar: [
@@ -47,13 +50,22 @@ export const FormArticle = (props: IFormArticleProps) => {
     'image',
   ]
 
-  const createArticleHandler = () =>
+  const createArticleHandler = () => {
+    if (!text && !title) return
+
     createArticleFunc({
       content: text,
+      title,
       subtitle,
       theme,
-      title,
     })
+
+    setText('')
+    setSubTitle('')
+    setTitle('')
+
+    setIsActiveModal(true)
+  }
 
   return (
     <div
@@ -138,6 +150,42 @@ export const FormArticle = (props: IFormArticleProps) => {
             />
           </div>
         </div>
+
+        {isActiveModal && isLoading && (
+          <MyModal
+            className="link-modal"
+            isActive={isActiveModal}
+            setIsActive={setIsActiveModal}
+            headerTitle="Поделиться статьей"
+            link={data?.link || ''}
+          >
+            {isLoading ? (
+              <div style={{ margin: '0 auto' }}>
+                <Spinner />
+              </div>
+            ) : (
+              <>
+                <p className="text-in-modal">Ссылка на статью:</p>
+                <br />
+                <div className="link-copy-wrap">
+                  <p className="link-to-article">
+                    {(data && data.link) || 'eoifihewj'}
+                  </p>
+                  {data && (
+                    <Copy className="notificationCopy" value={data.link} />
+                  )}
+                </div>
+                <br />
+                <br />
+                <p className="text-in-modal">Qr-код на статью:</p>
+                <div className="qr-code-wrap">
+                  <img src={data?.qr_code && data.qr_code} alt="qr-code" />
+                </div>
+              </>
+            )}
+          </MyModal>
+        )}
+
         <div className={style.button_block}>
           <TextButton
             onClick={createArticleHandler}

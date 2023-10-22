@@ -9,8 +9,9 @@ const ArticlePage = () => {
   const { data } = articleApi.useGetArticleByTitleQuery(title)
   return (
     <div className={style.page}>
-      <div className={style.bg}></div>
+      <div className={style.bg} />
       <ArticleWidgets
+        normolize_title={title}
         title={data?.title || ''}
         subtitle={data?.subtitle || ''}
         viewCount={data?.times_visited || 1}
