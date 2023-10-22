@@ -20,6 +20,7 @@ interface IFormArticleProps {
 
 export const FormArticle = (props: IFormArticleProps) => {
   const { onChangeImageCover } = props
+
   const [createArticleFunc, { data, isLoading }] =
     articleApi.useCreateArticleMutation()
   const [title, setTitle] = useState('')
@@ -133,12 +134,6 @@ export const FormArticle = (props: IFormArticleProps) => {
             onClick={() => setTheme(theme === 'dark' ? 'light' : 'dark')}
           />
         </div>
-        <div
-          className={classNames(
-            style.editorBlock,
-            theme === 'dark' ? style.editorBlockLight : '',
-          )}
-        >
           <div className={style.textEdit}>
             <ReactQuill
               value={text}
@@ -149,7 +144,6 @@ export const FormArticle = (props: IFormArticleProps) => {
               className={classNames(style.editor)}
             />
           </div>
-        </div>
 
         {isActiveModal && isLoading && (
           <MyModal
