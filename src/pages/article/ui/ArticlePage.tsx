@@ -1,7 +1,7 @@
 import { ArticleWidgets } from 'widgets/article'
 import style from './ArticlePage.module.scss'
 
-export const ArticlePage = () => {
+const ArticlePage = () => {
   return (
     <div className={style.page}>
       <div className={style.bg}>
@@ -16,3 +16,5 @@ export const ArticlePage = () => {
     </div>
   )
 }
+
+export default ArticlePage;
