@@ -1,11 +1,11 @@
 enum enumPath {
   CONSTRUCTOR = 'constructor',
   ARTICLE = 'article',
-  //   SEPARATE_ARTICLE = 'article/:normalised_title',
+  NOTFOUND = 'not_found',
 }
 
 export const pathRoutes: Record<enumPath, string> = {
-  [enumPath.ARTICLE]: '/article',
-  //   [enumPath.SEPARATE_ARTICLE]: '/article/:normalised_title',
+  [enumPath.ARTICLE]: '/article/:title',
   [enumPath.CONSTRUCTOR]: '/constructor',
+  [enumPath.NOTFOUND]: '/not_found',
 }

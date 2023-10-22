@@ -1,0 +1,1 @@
+export {FormArticle} from "./ui/FormArticle";
