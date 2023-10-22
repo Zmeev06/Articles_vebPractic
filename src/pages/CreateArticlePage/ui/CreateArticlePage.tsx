@@ -8,6 +8,7 @@ import plus from 'shared/assets/icons/plus.svg'
 import Sun from 'shared/assets/icons/sunIcon.svg?react'
 import { IconButton } from 'shared/ui/icon-button'
 import { Input } from 'shared/ui/input'
+import { Modal } from 'shared/ui/modal'
 import { TextButton } from 'shared/ui/text-button'
 import { articleApi } from '@app/providers/store'
 import styles from './CreateArticle.module.scss'
@@ -20,6 +21,7 @@ const CreateArticlePage = () => {
   const [selectedImage, setSelectedImage] = useState<string | null>(null)
   const [isSubtitle, setIsSubTitle] = useState(false)
   const [theme, setTheme] = useState('dark')
+  const [isActiveModal, setIsActiveModal] = useState(false)
 
   const handleImageChange = (event: React.ChangeEvent<HTMLInputElement>) => {
     const file = event.target.files?.[0]
@@ -57,6 +59,8 @@ const CreateArticlePage = () => {
   ]
 
   const createArticleHandler = () => {
+    if (!text && !title) return
+
     createArticleFunc({
       content: text,
       title,
@@ -67,6 +71,8 @@ const CreateArticlePage = () => {
     setText('')
     setSubTitle('')
     setTitle('')
+
+    setIsActiveModal(true)
   }
 
   return (
@@ -155,6 +161,18 @@ const CreateArticlePage = () => {
             </div>
           </div>
         </div>
+
+        {isActiveModal && (
+          <Modal
+            className="link-modal"
+            width="60%"
+            open={isActiveModal}
+            onClosed={() => setIsActiveModal(false)}
+          >
+            Modal
+          </Modal>
+        )}
+
         <TextButton
           onClick={createArticleHandler}
           styled="filled"

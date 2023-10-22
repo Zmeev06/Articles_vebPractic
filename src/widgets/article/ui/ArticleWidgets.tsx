@@ -1,9 +1,8 @@
-import style from "./ArticleWidgets.module.scss";
-
-import ShareIcon from "shared/assets/icons/share.svg?react";
-import DateIcon from "shared/assets/icons/date.svg?react";
-import EyeIcon from "shared/assets/icons/eye.svg?react";
-import { IconButton } from 'shared/ui/icon-button';
+import DateIcon from 'shared/assets/icons/date.svg?react'
+import EyeIcon from 'shared/assets/icons/eye.svg?react'
+import ShareIcon from 'shared/assets/icons/share.svg?react'
+import { IconButton } from 'shared/ui/icon-button'
+import style from './ArticleWidgets.module.scss'
 
 interface IArticleWidgetsProps {
   theme?: string

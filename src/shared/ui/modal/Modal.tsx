@@ -1,68 +1,69 @@
-import React, {useEffect, useState} from "react";
-import style from './Modal.module.scss';
-import classNames from "classnames";
+import classNames from 'classnames'
+import React, { useEffect, useState } from 'react'
+import style from './Modal.module.scss'
 
 interface IModalProps {
-    children: React.ReactNode,
-    className?: string,
-    bgColor?: string,
-    open: boolean,
-    onClosed: () => void,
-    width?: string,
-    padding?: string,
+  children: React.ReactNode
+  className?: string
+  bgColor?: string
+  open: boolean
+  onClosed: () => void
+  width?: string
+  padding?: string
 }
 
 export const Modal = (props: IModalProps) => {
-    const {
-        children,
-        className,
-        bgColor = "#ffffff",
-        onClosed,
-        open,
-        padding = "5px",
-        width = "fit-content",
-    } = props;
+  const {
+    children,
+    className,
+    bgColor = '#ffffff',
+    onClosed,
+    open,
+    padding = '5px',
+    width = 'fit-content',
+  } = props
 
-    const [closedAnim, setClosedAnim] = useState(false);
+  const [closedAnim, setClosedAnim] = useState(false)
 
-    const onKeyDown = (e: KeyboardEvent): void => {
-        if (e.key === 'Escape') {
-            onClosed()
-        }
+  const onKeyDown = (e: KeyboardEvent): void => {
+    if (e.key === 'Escape') {
+      onClosed()
+    }
+  }
+
+  useEffect(() => {
+    if (open) {
+      window.addEventListener('keydown', onKeyDown)
     }
 
-    useEffect(() => {
-        if (open) {
-            window.addEventListener('keydown', onKeyDown)
-        }
-
-        return () => {
-            window.removeEventListener('keydown', onKeyDown)
-        }
-    }, [open])
-
-    const closedHandle = () => {
-        setClosedAnim(true);
-        setTimeout(() => {
-            onClosed();
-        }, 300);
-        setClosedAnim(false);
+    return () => {
+      window.removeEventListener('keydown', onKeyDown)
     }
+  }, [open])
 
-    const handleClickContext = (e: React.MouseEvent): void => {
-        e.stopPropagation()
-    }
+  const closedHandle = () => {
+    setClosedAnim(true)
+    setTimeout(() => {
+      onClosed()
+    }, 300)
+    setClosedAnim(false)
+  }
 
-    const mods = {[style.open]: open, [style.closed]: closedAnim}
+  const handleClickContext = (e: React.MouseEvent): void => {
+    e.stopPropagation()
+  }
 
-    return (
-        <div className={classNames(style.container, mods)} onClick={closedHandle}>
-            <div
-                onClick={handleClickContext}
-                style={{backgroundColor: bgColor, padding: padding, width: width}}
-                className={classNames(style.modal, className)}>
-                {children}
-            </div>
-        </div>
-    );
-};
+  const mods = { [style.open]: open, [style.closed]: closedAnim }
+
+  return (
+    <div className={classNames(style.container, mods)} onClick={closedHandle}>
+      <div
+        onClick={handleClickContext}
+        style={{ backgroundColor: bgColor, padding, width }}
+        className={classNames(style.modal, className)}
+      >
+        {children}
+      </div>
+    </div>
+  )
+}
