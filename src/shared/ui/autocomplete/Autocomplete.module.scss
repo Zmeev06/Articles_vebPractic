@@ -1,0 +1,38 @@
+/* Стили для корневого контейнера компонента Autocomplete */
+.autocompleteContainer {
+  position: relative;
+}
+
+/* Стили для поля ввода */
+.autocompleteContainer input {
+  width: 100%;
+  padding: 8px;
+  font-size: 16px;
+  position: relative; /* Установим положение для позиционирования подсказок */
+}
+
+/* Список подсказок */
+.autocompleteSuggestions {
+  position: absolute;
+  top: 100%; /* Отображать подсказки над полем ввода */
+  left: 0;
+  right: 0;
+  background-color: #fff;
+  border: 1px solid #ccc;
+  border-top: none;
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+/* Стили для элементов списка подсказок */
+.autocompleteSuggestions li {
+  padding: 8px;
+  cursor: pointer;
+  transition: background-color 0.2s;
+}
+
+/* Стиль для выбранной подсказки */
+.autocompleteSuggestions li:hover {
+  background-color: #f0f0f0;
+}

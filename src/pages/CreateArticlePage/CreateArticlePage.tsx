@@ -2,30 +2,25 @@ import 'react-quill/dist/quill.snow.css'
 import classNames from 'classnames'
 import React, { useEffect, useState } from 'react'
 import ReactQuill from 'react-quill'
-import DeleteIcon from 'shared/assets/icons/delete.svg?react'
-import Moon from 'shared/assets/icons/moon.svg?react'
-import plus from 'shared/assets/icons/plus.svg'
-import Sun from 'shared/assets/icons/sunIcon.svg?react'
-import { Copy } from 'shared/ui/Copy'
 import { IconButton } from 'shared/ui/icon-button'
 import { Input } from 'shared/ui/input'
-import { Modal } from 'shared/ui/modal'
-import { MyModal } from 'shared/ui/my-modal'
-import { Spinner } from 'shared/ui/spinner'
 import { TextButton } from 'shared/ui/text-button'
 import { articleApi } from '@app/providers/store'
+import DeleteIcon from '../../shared/assets/icons/delete.svg?react'
+import Moon from '../../shared/assets/icons/moon.svg?react'
+import plus from '../../shared/assets/icons/plus.svg'
+import Sun from '../../shared/assets/icons/sunIcon.svg?react'
 import styles from './CreateArticle.module.scss'
 
-const CreateArticlePage = () => {
-  const [createArticleFunc, { data, isLoading }] =
-    articleApi.useCreateArticleMutation()
+export const CreateArticlePage = () => {
+  const [createArticleFunc] = articleApi.useCreateArticleMutation()
   const [title, setTitle] = useState('')
   const [subtitle, setSubTitle] = useState('')
   const [text, setText] = useState('')
   const [selectedImage, setSelectedImage] = useState<string | null>(null)
   const [isSubtitle, setIsSubTitle] = useState(false)
   const [theme, setTheme] = useState('dark')
-  const [isActiveModal, setIsActiveModal] = useState(false)
+
   const handleImageChange = (event: React.ChangeEvent<HTMLInputElement>) => {
     const file = event.target.files?.[0]
 
@@ -61,22 +56,13 @@ const CreateArticlePage = () => {
     'image',
   ]
 
-  const createArticleHandler = () => {
-    if (!text && !title) return
-
+  const createArticleHandler = () =>
     createArticleFunc({
       content: text,
-      title,
       subtitle,
       theme,
+      title,
     })
-
-    setText('')
-    setSubTitle('')
-    setTitle('')
-
-    setIsActiveModal(true)
-  }
 
   return (
     <div className={styles.main}>
@@ -164,41 +150,6 @@ const CreateArticlePage = () => {
             </div>
           </div>
         </div>
-
-        {isActiveModal && (
-          <MyModal
-            className="link-modal"
-            isActive={isActiveModal}
-            setIsActive={setIsActiveModal}
-            headerTitle="Поделиться статьей"
-          >
-            {isLoading ? (
-              <div style={{ margin: '0 auto' }}>
-                <Spinner />
-              </div>
-            ) : (
-              <>
-                <p className="text-in-modal">Ссылка на статью:</p>
-                <br />
-                <div className="link-copy-wrap">
-                  <p className="link-to-article">
-                    {(data && data.link) || 'eoifihewj'}
-                  </p>
-                  {data && (
-                    <Copy className="notificationCopy" value={data.link} />
-                  )}
-                </div>
-                <br />
-                <br />
-                <p className="text-in-modal">Qr-код на статью:</p>
-                <div className="qr-code-wrap">
-                  <img src={data?.qr_code && data.qr_code} alt="qr-code" />
-                </div>
-              </>
-            )}
-          </MyModal>
-        )}
-
         <TextButton
           onClick={createArticleHandler}
           styled="filled"
@@ -211,5 +162,3 @@ const CreateArticlePage = () => {
     </div>
   )
 }
-
-export default CreateArticlePage

@@ -2,14 +2,13 @@
     display: flex;
     flex-direction: column;
     align-items: center;
+    justify-content: center;
     width: 100%;
     max-width: 1000px;
     height: fit-content;
     margin: 10px;
     padding: 10px;
     border-radius: 10px;
-    min-height: 600px;
-    z-index: 1000;
 }
 
 .title{
@@ -57,14 +56,13 @@
     width: 100%;
 }
 .bar{
-    width: 100%;
-    max-width: 850px;
+    width: 850px;
     height: 1px;
     opacity: .3;
     margin: 10px 0;
 }
 
-p, h1, h2, h3, img, .bar, .content, .date, .views, .share {
+p, h1, h2, h3, img, .bar, .content, .date, .views {
     animation: spawn .9s ease-in;
 }
 
@@ -77,47 +75,5 @@ p, h1, h2, h3, img, .bar, .content, .date, .views, .share {
     100%{
         opacity: 1;
         transform: translateY(0px);
-    }
-}
-
-@media (max-width: 1100px) {
-    .article{
-        max-width: 800px;
-    }
-    .bar{
-        max-width: 750px;
-    }
-}
-
-@media (max-width: 870px) {
-    .article{
-        max-width: 600px;
-    }
-    .bar{
-        max-width: 550px;
-    }
-}
-
-@media (max-width: 600px) {
-    .article{
-        max-width: 400px;
-    }
-    .bar{
-        max-width: 350px;
-    }
-}
-
-@media (max-width: 400px) {
-    .article{
-        max-width: 200px;
-    }
-    .title{
-        margin-right: 50px;
-    }
-    .title_block{
-        margin-left: 0;
-    }
-    .bar{
-        max-width: 150px;
     }
 }
