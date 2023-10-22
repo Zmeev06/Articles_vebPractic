@@ -10,6 +10,8 @@ import plus from 'shared/assets/icons/plus.svg'
 import Sun from 'shared/assets/icons/sunIcon.svg?react'
 import ReactQuill from "react-quill";
 import { articleApi } from "@app/providers/store";
+import UploadImageIcon from "shared/assets/icons/uploadImage.svg";
+
 
 interface IFormArticleProps {
     onChangeImageCover: (event: React.ChangeEvent<HTMLInputElement>) => void
@@ -79,7 +81,7 @@ export const FormArticle = (props: IFormArticleProps) => {
                 className={style.input_title}
             />
              <label htmlFor="input" className={style.inputLabel}>
-            <img src={plus} alt="" className={style.icon} />
+            <img src={UploadImageIcon} alt="" className={style.icon} />
             <input
               id="input"
               type="file"
