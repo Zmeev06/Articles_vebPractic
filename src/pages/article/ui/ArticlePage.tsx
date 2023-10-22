@@ -1,7 +1,12 @@
+import {useParams} from "react-router-dom";
 import { ArticleWidgets } from 'widgets/article'
 import style from './ArticlePage.module.scss'
+import { articleApi } from "@app/providers/store";
 
 const ArticlePage = () => {
+  const {title = ""} = useParams();
+  const {data} = articleApi.useGetArticleByTitleQuery(title)
+  console.log(data);
   return (
     <div className={style.page}>
       <div className={style.bg}>

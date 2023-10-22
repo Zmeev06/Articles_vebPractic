@@ -9,6 +9,7 @@ import Moon from 'shared/assets/icons/moon.svg?react'
 import plus from 'shared/assets/icons/plus.svg'
 import Sun from 'shared/assets/icons/sunIcon.svg?react'
 import ReactQuill from "react-quill";
+import { articleApi } from "@app/providers/store";
 
 interface IFormArticleProps {
     onChangeImageCover: (event: React.ChangeEvent<HTMLInputElement>) => void
@@ -18,6 +19,8 @@ export const FormArticle = (props: IFormArticleProps) => {
     const {
         onChangeImageCover
     } = props;
+
+    const [createArticleFunc] = articleApi.useCreateArticleMutation()
 
     const [title, setTitle] = useState('')
     const [subtitle, setSubTitle] = useState('')
