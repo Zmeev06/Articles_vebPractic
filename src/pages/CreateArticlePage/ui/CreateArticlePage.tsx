@@ -23,7 +23,7 @@ const CreateArticlePage = () => {
   return (
     <div className={styles.main}>
       <div className={styles.bg}>
-        {selectedImage && <img className={styles.bgImg} src={selectedImage || ""} alt="обложка" />}
+        {selectedImage && <img className={styles.bgImg} src={selectedImage || ""} alt="фон" />}
       </div>
       <FormArticle onChangeImageCover={handleImageChange}/>
     </div>

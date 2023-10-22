@@ -120,3 +120,13 @@
       height: 200px;
     }
   }
+
+  @media (max-width: 500px) {
+    .input_title{
+      max-width: 120px;
+    }
+    .subtitleBlock{
+      max-width: 80;
+    }
+    
+  }
