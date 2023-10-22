@@ -1,5 +1,5 @@
-import { createApi } from '@reduxjs/toolkit/query/react'
-import { IArticle } from 'shared/interfaces/article'
+import { createApi, fetchBaseQuery } from '@reduxjs/toolkit/query/react'
+import { GetContactArticle, IArticle } from 'shared/interfaces/article'
 import { baseQuery } from './settings'
 
 interface ICreateArticle {
@@ -31,7 +31,7 @@ export const articleApi = createApi({
         method: 'GET',
       }),
     }),
-    createArticle: builder.mutation<IArticle, ICreateArticle>({
+    createArticle: builder.mutation<GetContactArticle, ICreateArticle>({
       query: ({ content, subtitle, theme, title }) => ({
         url: `create/article`,
         method: 'POST',
