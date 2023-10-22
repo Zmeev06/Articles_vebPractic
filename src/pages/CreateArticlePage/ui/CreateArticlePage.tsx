@@ -1,7 +1,7 @@
 import 'react-quill/dist/quill.snow.css'
 import React, { useState } from 'react'
 import styles from './CreateArticle.module.scss'
-import { FormArticle } from 'features/form-article'
+import { FormArticle } from 'features/form-article';
 
 const CreateArticlePage = () => {
   const [selectedImage, setSelectedImage] = useState<string | null>(null)
@@ -27,7 +27,7 @@ const CreateArticlePage = () => {
           <img src={selectedImage} alt="Selected" className={styles.bgImg} />
         )}
       </div>
-      <FormArticle onChangeImageCover={handleImageChange} />
+      <FormArticle onChangeImageCover={handleImageChange}/>
     </div>
   )
 }

@@ -24,7 +24,7 @@ export const FormArticle = (props: IFormArticleProps) => {
   const [subtitle, setSubTitle] = useState('')
   const [text, setText] = useState('')
   const [isSubtitle, setIsSubTitle] = useState(false)
-  const [theme, setTheme] = useState('dark')
+  const [theme, setTheme] = useState('light')
 
   const modules = {
     toolbar: [
