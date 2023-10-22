@@ -1,0 +1,117 @@
+  .articleBlock {
+    z-index: 2;
+    width: 60%;
+    height: 100%;
+    max-height: 650px;
+    border-radius: 20px;
+    background-color: #fff;
+    padding: 20px 30px;
+    margin: 10px;
+    display: flex;
+    flex-direction: column;
+    transition: 0.3s;
+  }
+
+  .icon{
+    width: 25px;
+    height: 25px;
+  }
+
+  .article_inner{
+  }
+  
+  .titlesBlock {
+    display: flex;
+    justify-content: space-between;
+    display: flex;
+    margin-bottom: 40px;
+  }
+  .input_title{
+    width: 100%;
+    max-width: 600px;
+  }
+  
+  .fileInput {
+    display: none;
+  }
+  
+  .inputLabel {
+    cursor: pointer;
+    width: 60px;
+    height: 60px;
+    background-color: #e3e3e3;
+    transition: 0.3s;
+    border-radius: 5px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    &:hover {
+      background-color: #e3e3e390;
+    }
+  }
+  
+  .textEdit {
+    margin-top: 10px;
+    width: 100%;
+    height: fit-content;
+  }
+  
+  .editor {
+    width: 100%;
+    height: 100%;
+    max-height: 370px;
+  }
+  
+  .addSubtitle {
+    font-size: 30px;
+    border-bottom: 1px solid #a9a9a9;
+    width: fit-content;
+    cursor: pointer;
+    color: #a9a9a9;
+    &:hover {
+      color: #bcbcbc;
+    }
+  }
+  
+  .subtitleBlock {
+    display: flex;
+    gap: 20px;
+    height: 50px;
+    align-items: center;
+    width: 60%;
+  }
+  
+  .btn {
+    position: absolute;
+    right: 0;
+    margin-top: 10px;
+    align-self: flex-end;
+  }
+  
+  .light {
+    background-color: #ffffffe7;
+  }
+  
+  .dark {
+    background-color: #101010f0;
+  }
+  
+  .editorBlock {
+    transition: 0.3s;
+    height: 420px;
+    background-color: #fff;
+  }
+  
+  .editorBlockLight {
+    background-color: #dcdadabd;
+  }
+  
+  .themedBlock {
+    display: flex;
+    gap: 30px;
+    align-items: center;
+  }
+
+  .button_block{
+    position: relative;
+  }

@@ -33,7 +33,7 @@ export const IconButton = (props: IIconButtonProps) => {
       className={classNames(style.btn, className)}
       {...otherProps}
     >
-      <Icon width={`${width}px`} className={className} />
+      <Icon width={`${width}px`} />
     </button>
   )
 }
