@@ -9,3 +9,8 @@ export interface IArticle {
   title: string
   times_visited: number
 }
+
+export interface GetContactArticle {
+  link: string
+  qr_code: string
+}

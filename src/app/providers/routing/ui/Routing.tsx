@@ -9,7 +9,8 @@ export const Routing = () => {
   return (
     <Suspense fallback={<PageLoader />}>
       <Routes>
-        <Route path={pathRoutes.article} element={<ArticlePageLazy />} />
+        {/* <Route path={pathRoutes.article} element={<ArticlePageLazy />} /> */}
+        <Route path="article/:normalised_title" element={<ArticlePageLazy />} />
         <Route
           path={pathRoutes.constructor}
           element={<CreateArticlePageLazy />}
