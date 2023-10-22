@@ -10,22 +10,13 @@ export const Routing = () => {
   return (
     <Suspense fallback={<PageLoader />}>
       <Routes>
-        <Route 
-            path={pathRoutes.article}  
-            element={<ArticlePageLazy />} 
-        />
+        <Route path={pathRoutes.article} element={<ArticlePageLazy />} />
         <Route
           path={pathRoutes.constructor}
           element={<CreateArticlePageLazy />}
         />
-        <Route 
-            path="/" 
-            element={<CreateArticlePageLazy />} 
-        />
-        <Route
-            path={pathRoutes.not_found}
-            element={<NotFoundPageLazy/>}
-        />
+        <Route path="/" element={<CreateArticlePageLazy />} />
+        <Route path={pathRoutes.not_found} element={<NotFoundPageLazy />} />
       </Routes>
     </Suspense>
   )

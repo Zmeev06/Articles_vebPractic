@@ -1,3 +1,4 @@
+/* eslint-disable jsx-a11y/no-static-element-interactions */
 import classNames from 'classnames'
 import React, { useEffect, useState } from 'react'
 import style from './Modal.module.scss'
@@ -56,6 +57,7 @@ export const Modal = (props: IModalProps) => {
   const mods = { [style.open]: open, [style.closed]: closedAnim }
 
   return (
+    // eslint-disable-next-line jsx-a11y/no-static-element-interactions
     <div className={classNames(style.container, mods)} onClick={closedHandle}>
       <div
         onClick={handleClickContext}
